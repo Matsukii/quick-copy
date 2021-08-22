@@ -14,7 +14,7 @@ __build for chrome/chromium based browsers for now, not too hard to adapt__
 ## Usage
 Hold shift and move the cursor to highligh a element and click to copy to clipboard
 
-*important: if the setting "speciialTags" has a property for link tags (a) and you click a link a phone number or email that is link too, the href (if available) will be copied*
+*important: if the setting "specialTags" has a property for link tags (a) and you click a link a phone number or email that is link too, the href (if available) will be copied*
 
 ## Settings
 _now, only settings on file are availble, a dedicated page may come later_
