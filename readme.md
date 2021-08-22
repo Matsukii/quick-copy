@@ -19,6 +19,7 @@ Hold shift and move the cursor to highligh a element and click to copy to clipbo
 ## Settings
 _now, only settings on file are availble, a dedicated page may come later_
 
+
 Open the file "content.js" edit what you need, all of them have a description.
 
 These are the settings that you will find on the file:
@@ -128,6 +129,8 @@ const config = {
     debug: false,
 }
 ```
+
+_it's ok using JSDoc for variables and objects? 🤔_
 
 
 ## LICENSE: MIT
