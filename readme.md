@@ -10,6 +10,9 @@ __build for chrome/chromium based browsers for now, not too hard to adapt__
 4. Enable "Developer Mode"
 5. Click on "Load unpacked" and select the folder you just unzip
 
+## Permissions used
+* clipboardWrite
+* notifications
 
 ## Usage
 Hold shift and move the cursor to highligh a element and click to copy to clipboard
@@ -41,22 +44,39 @@ const config = {
      * may only work in secure pages/https, not in http/without SSL
      */
     notification:{
-        enable: true,
+        enable: false,
         hideAfterMs: 2000,
         title: "Text copied to clipboard!"
     },
 
     /**
-     * @description enable key to start/stop listening the mouse
+     * @description Enable key to start/stop listening the mouse
      * false -> always listening
      * true  -> listen only when key is held down (recommended)
      * 
-     * if disabled, may interfere with nafigation
+     * if disabled, may interfere with navigation, links might not
+     * work properly.
+     *
+     *
+     * IMPORTANT: clicking on ANYTHING will copy to clipboard, if
+     * you click in text and want to paste in a input field,
+     * whatever is in the input will OVERWRITE the clipboard.
+     * I only recommend if you are using to copy from a page to
+     * another software, like notepad for example.
      */
-    enableActionKey: true,
-    
+    enableActionKey: false,
+
     /**
-     * @description the key that when you hold it will start listening
+     * @description uses event. preventDefault() and stopPropagation()
+     * to not allow actions to happen when you click something, this
+     * allows to click in a link to copy without opening it.
+     * 
+     * 
+     */
+    preventDefaultActions: false,
+
+    /**
+     * @description The key that when you hold it will start listening
      * for  mouse  position  and  clicks,  this allows to not leave it
      * always tracking cursor and clicks
      * 
@@ -120,7 +140,7 @@ const config = {
      */
     highlight: {
         enable: true,
-        color: "rgba(0,0,0,0.3)",
+        color: "rgba(0,0,0,0.1)",
         timeout: 500,
     },
 
@@ -133,4 +153,4 @@ const config = {
 _it's ok using JSDoc for variables and objects? 🤔_
 
 
-## LICENSE: MIT
+## LICENSE: [MIT](https://github.com/Matsukii/quick-copy/blob/main/LICENSE)

@@ -1,117 +1,28 @@
+/**
+ * @description this file is where listeners are attached
+ * and executed 
+*/
 
+
+let highlightRemove;               // timer for remove higlight is stored here
+let lastEl = undefined;            // last element clicked/hovered
+let debug = false || config.debug; // enable/disable debug, change here or in the settings
 
 /**
- * @description change settings here
- * options page may come later...
+ * @description check if debug is enabled then print the arguments
+ * if you set the fisrt parameter as log, error or warn, it use
+ * the console.<type>
+ * 
+ * @param  {...any} args things to print on console
+ * 
+ * @example log("test: ", 1)
+ * @example log("error", new Error("Error"))
+ * @example log("warn", "warning")
  */
-const config = {
-
-    /**
-     * @description notification after copying
-     * 
-     * @param {Boolean} enable      enable/disable (true/false)
-     * @param {Number}  hideAfterMs hide notifiction after XXmilliseconds
-     * set to -1 to not hide
-     * 
-     * may only work in secure pages/https, not in http/without SSL
-     */
-    notification:{
-        enable: true,
-        hideAfterMs: 2000,
-        title: "Text copied to clipboard!"
-    },
-
-    /**
-     * @description enable key to start/stop listening the mouse
-     * false -> always listening
-     * true  -> listen only when key is held down (recommended)
-     * 
-     * if disabled, may interfere with nafigation
-     */
-    enableActionKey: true,
-    
-    /**
-     * @description the key that when you hold it will start listening
-     * for  mouse  position  and  clicks,  this allows to not leave it
-     * always tracking cursor and clicks
-     * 
-     * keys  like ctrl and shift are  not recomended if you cliking in
-     * links,  it  may  prevent  for  copying  or  opening link in new
-     * window/tab
-     * 
-     * change it by the key you want
-     * @example //examples:
-     * actionKey: "Shift"
-     * actionKey: "Alt"
-     * actionKey: "w"
-     * actionKey: "W" (shift+w)
-     */
-    actionKey: "Shift",
-
-
-    /**
-     * @description the event that will make it interact
-     * with what you want to select, you still need to click to copy
-     * but changes if will select when mouse move or whe you click
-     * 
-     * recommended: click or mousemove
-     */
-    mouseEventType: "mousemove",
-
-
-    /**
-     * @description put the tag and the attribute if you want to  take
-     * something  specifically, like "href" form <a> (links) or  "src"
-     * from an image tag (<img>)
-     * 
-     * 
-     */
-    specialTags: {
-        "A": "href"
-    },
-
-    /**
-     * @description Sometimes you are not selecting/clicking a <a> tag
-     * with this setted to "true", the parent element you are hovering 
-     * will also be checked
-     * 
-     * Google search results do that, puts a <h3> inside a <a> tag
-     */
-    checkParentElement: true,
-
-
-    /**
-     * @description enables a  highlight when mouse hovers  a element,
-     * adds a background-color to the element
-     * 
-     * @param {Boolean} enable  enable/disable (true/false) highlight
-     * @param {String}  color   color of highlight, the recommended  is
-     * a translucent color (with alpha channel, like rgba or 8char HEX)
-     * @example
-     * #00000080 -> half translucent black
-     * rgba(255, 255, 255, 0.5) -> half translucent white
-     * @param {Number}  timeout time to remove the highlight after stop
-     * moving the mouse
-     */
-    highlight: {
-        enable: true,
-        color: "rgba(0,0,0,0.3)",
-        timeout: 500,
-    },
-
-
-    // print things on devTools console
-    debug: false,
-}
-
-
-let hovered;
-let highlightRemove;
-let lastTag = "";
-let lastEl = undefined;
-
 function log(...args){
-    if(config.debug) console.log(...args);
+    const typs = ["log", "warn", "error"];
+    let type = typs.includes(args[0]) ? args[0] : "log";
+    if(debug) console[type](...args);
 }
 
 /**
@@ -178,8 +89,10 @@ function clipboardWrite(str){
 }
 
 function copy(e){
-    e.preventDefault();
-    e.stopPropagation();
+    if(config.preventDefaultActions){
+        e.preventDefault();
+        e.stopPropagation();
+    }
 
     if(e.target){
         let text = e.target.innerText;
@@ -215,7 +128,6 @@ function selectFragment(e){
         copy(e);
     }
     else{
-        hovered = e;
         if(config.highlight.enable){
             e.target.style.backgroundColor = config.highlight.color;
 
