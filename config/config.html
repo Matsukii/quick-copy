@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./config.css">
+    
+    <title>quick-copy options</title>
+    
+</head>
+<body>
+    <div id="main">
+        <h2>Config.</h2>
+        <div class="section">
+            <h3>Action and key</h3>
+            <div class="config-item">
+                <input type="checkbox" name="enableActionKey" id="enableActionKey">
+                <label for="enableActionKey">Action key</label>
+                <br>
+                <i class="desc">Start/stop listening for clicks and mouse move when a key is pressed</i>
+            </div>
+            
+            <div class="config-item">
+                <br>
+                <input type="checkbox" name="preventDefaultActions" id="preventDefaultActions">
+                <label for="preventDefaultActions">Prevent default action</label>
+                <br>
+                <i class="desc">Prevent following links on clicks, preventDefault() and stopPropagation()</i>
+            </div>
+    
+            <div class="config-item">
+                <br>
+                <label for="actionKey">Action Key</label>
+                <br>
+                <input type="text" name="actionKey" id="actionKey" placeholder="Shift, Alt, w...">
+                <br>
+                <i class="desc">Start listening for mouse move and clicks when this key is held down</i>
+            </div>
+    
+            <div class="config-item">
+                <br>
+                <input type="checkbox" name="checkParentElement" id="checkParentElement">
+                <label for="checkParentElement">Check parent element</label>
+                <br>
+                <i class="desc">Check if parent element of hovered has a link</i>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="./config/config-page.js"></script>
+</body>
+</html>
