@@ -5,7 +5,7 @@ __build for chrome/chromium based browsers for now, not too hard to adapt__
 
 ## Install
 1. Clone or download this repository (and unzip if necessary)
-2. Open the file "content.js" if want to change any setting
+2. Open the file "config.js" if want to change any setting
 3. Open your browser extensions page
 4. Enable "Developer Mode"
 5. Click on "Load unpacked" and select the folder you just unzip
