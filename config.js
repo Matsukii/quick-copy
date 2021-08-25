@@ -1,33 +1,3 @@
-# Quick-copy
-A extension to quickly copy text by clicking on a text/link while holding a key (you can enable/disable and change key in settings)
-
-__build for chrome/chromium based browsers for now, not too hard to adapt__
-
-## Install
-1. Clone or download this repository (and unzip if necessary)
-2. Open the file "content.js" if want to change any setting
-3. Open your browser extensions page
-4. Enable "Developer Mode"
-5. Click on "Load unpacked" and select the folder you just unzip
-
-## Permissions used
-* clipboardWrite
-* notifications
-
-## Usage
-Hold shift and move the cursor to highligh a element and click to copy to clipboard
-
-*important: if the setting "specialTags" has a property for link tags (a) and you click a link a phone number or email that is link too, the href (if available) will be copied. if you want to copy it anyways, maybe try selecting the outer element instead of the text... *
-
-## Settings
-_now, only settings on file are availble, a dedicated page may come later_
-
-
-Open the file "content.js" edit what you need, all of them have a description.
-
-These are the settings that you will find on the file:
-
-```js
 /**
  * @description change settings here
  * options page may come later...
@@ -148,9 +118,3 @@ const config = {
     // print things on devTools console
     debug: false,
 }
-```
-
-_it's ok using JSDoc for variables and objects? 🤔_
-
-
-## LICENSE: [MIT](https://github.com/Matsukii/quick-copy/blob/main/LICENSE)
