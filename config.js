@@ -82,7 +82,7 @@ const config = {
      * 
      */
     specialTags: {
-        "A": "href"
+        // "A": "href"
     },
 
     /**
