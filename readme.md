@@ -1,7 +1,10 @@
 # Quick-copy
 A extension to quickly copy text by clicking on a text/link while holding a key (you can enable/disable and change key in settings)
 
-__build for chrome/chromium based browsers for now, not too hard to adapt__
+__build for chrome/chromium based browsers for now, works with Firefox but not too hard to adapt for other browsers__
+
+![GXpQwfUEF2](https://user-images.githubusercontent.com/28326534/152839091-932af57f-bbc3-4da5-8690-61295afdb161.gif)
+
 
 ## Install
 1. Clone or download this repository (and unzip if necessary)
