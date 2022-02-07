@@ -4,7 +4,7 @@ A extension to quickly copy text by clicking on a text/link while holding a key 
 __build for chrome/chromium based browsers for now, works with Firefox but not too hard to adapt for other browsers__
 
 ![GXpQwfUEF2](https://user-images.githubusercontent.com/28326534/152839091-932af57f-bbc3-4da5-8690-61295afdb161.gif)
-
+__*Medium article used only as example for copying an entire page of text, I do not endorse, acknowledge or take part of any content available in this demonstration*__
 
 ## Install
 1. Clone or download this repository (and unzip if necessary)
